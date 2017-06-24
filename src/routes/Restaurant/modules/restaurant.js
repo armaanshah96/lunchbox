@@ -49,7 +49,7 @@ const ACTION_HANDLERS = {
     state.selectedId = action.payload.isChecked ?
       action.payload.restaurantId :
       "";
-    return state.selectedId;
+    return state;
   }
 }
 
