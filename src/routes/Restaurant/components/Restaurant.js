@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import CardComponent from '../../../layouts/Card/CardLayout'
 
 export const Restaurant = ({ restaurants }) => (
-  <CardComponent/>
+  <CardComponent />
 )
 
 Restaurant.propTypes = {
