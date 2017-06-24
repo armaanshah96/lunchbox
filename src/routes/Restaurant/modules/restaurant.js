@@ -3,14 +3,16 @@
 // ------------------------------------
 export const COUNTER_INCREMENT = 'COUNTER_INCREMENT'
 export const COUNTER_DOUBLE_ASYNC = 'COUNTER_DOUBLE_ASYNC'
+export const CHECK_RESTAURANT = 'CHECK_RESTAURANT'
 
 // ------------------------------------
 // Actions
 // ------------------------------------
-export function increment (value = 1) {
+export function check (isChecked, restaurantId) {
+  console.log(isChecked, restaurantId)
   return {
-    type    : COUNTER_INCREMENT,
-    payload : value
+    type    : CHECK_RESTAURANT,
+    payload : { isChecked, restaurantId }
   }
 }
 
@@ -33,7 +35,7 @@ export const doubleAsync = () => {
 }
 
 export const actions = {
-  increment,
+  check
 }
 
 // ------------------------------------
@@ -41,13 +43,23 @@ export const actions = {
 // ------------------------------------
 const ACTION_HANDLERS = {
   [COUNTER_INCREMENT]    : (state, action) => state + action.payload,
-  [COUNTER_DOUBLE_ASYNC] : (state, action) => state * 2
+  [COUNTER_DOUBLE_ASYNC] : (state, action) => state * 2,
+  [CHECK_RESTAURANT]: (state, action) => {
+    console.log(state)
+    state.selectedId = action.payload.isChecked ?
+      action.payload.restaurantId :
+      "";
+    return state.selectedId;
+  }
 }
 
 // ------------------------------------
 // Reducer
 // ------------------------------------
-const initialState = 0
+const initialState = {
+  selectedId: "",
+  restaurants: []
+}
 export default function restaurantReducer (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]
 

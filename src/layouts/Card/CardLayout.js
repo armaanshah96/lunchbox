@@ -1,21 +1,47 @@
 import React from 'react'
 import { IndexLink, Link } from 'react-router'
 import PropTypes from 'prop-types'
+import Avatar from 'material-ui/Avatar';
+import Checkbox from 'material-ui/Checkbox';
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+import FileFolder from 'material-ui/FontIcon';
+import { List, ListItem } from 'material-ui/List';
 
-export const CardLayout = ({ children }) => (
-  <Card>
-    <CardHeader
-      title="URL Avatar"
-      subtitle="Subtitle"
-      // avatar="images/ok-128.jpg"
-      // actAsExpander={true}
-      // showExpandableButton={true}
-    />
-  </Card>
-)
+export const CardLayout = ({ id, children, check, selectedRestaurantId }) => {
+  const avatar = <Avatar icon={<FileFolder />} />;
+
+  const updateCheck = function(event, isInputChecked) {
+    check(isInputChecked, id)
+  }
+
+  console.log(id, selectedRestaurantId)
+
+  const checkbox = <Checkbox onCheck={updateCheck} />
+  const boom = (
+    <List>
+      <ListItem
+        leftCheckbox={ checkbox }
+        rightAvatar={ avatar }
+        primaryText="Name"
+        secondaryText="Other info"
+      ></ListItem>
+    </List>
+  )
+
+  return (
+    <Card>
+      <CardText
+        children={ boom }
+      />
+    </Card>
+  );
+}
+
 CardLayout.propTypes = {
+  id: PropTypes.string.isRequired,
   children: PropTypes.node,
+  check: PropTypes.func.isRequired,
+  selectedRestaurantId: PropTypes.string.isRequired
 }
 
 export default CardLayout
