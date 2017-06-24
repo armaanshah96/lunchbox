@@ -6,6 +6,7 @@ import CounterRoute from './Counter'
 /*  Note: Instead of using JSX, we recommend using react-router
     PlainRoute objects to build route definitions.   */
 import RestaurantRoute from './Restaurant'
+import ResultsRoute from './Results'
 
 /*  Note: Instead of using JSX, we recommend using react-router
     PlainRoute objects to build route definitions.   */
@@ -16,7 +17,8 @@ export const createRoutes = (store) => ({
   indexRoute  : Home,
   childRoutes : [
     CounterRoute(store),
-    RestaurantRoute(store)
+    RestaurantRoute(store),
+    ResultsRoute(store)
   ]
 })
 
