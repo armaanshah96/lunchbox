@@ -4,6 +4,19 @@
   <title>React Redux Starter Kit</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyA7naiiMre_RRbochvGrgu2V1I445VtFxk",
+      authDomain: "lunchbox-a9ed0.firebaseapp.com",
+      databaseURL: "https://lunchbox-a9ed0.firebaseio.com",
+      projectId: "lunchbox-a9ed0",
+      storageBucket: "lunchbox-a9ed0.appspot.com",
+      messagingSenderId: "45410714035"
+    };
+    firebase.initializeApp(config);
+  </script>
 </head>
 <body>
   <div id="root" style="height: 100%"></div>
