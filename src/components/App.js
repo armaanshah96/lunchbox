@@ -3,6 +3,7 @@ import { browserHistory, Router } from 'react-router'
 import { Provider } from 'react-redux'
 import PropTypes from 'prop-types'
 
+// Thomas -- adding sign in check to use the app
 class App extends React.Component {
   static propTypes = {
     store: PropTypes.object.isRequired,
