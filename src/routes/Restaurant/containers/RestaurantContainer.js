@@ -1,4 +1,5 @@
 import { connect } from 'react-redux'
+import { check } from '../modules/restaurant'
 
 
 /*  This is a container component. Notice it does not contain any JSX,
@@ -15,11 +16,16 @@ import Restaurant from '../components/Restaurant'
 const mapDispatchToProps = {
   // getRestaurants : () => getRestaurants(),
   // doubleAsync
+  check: check
 }
 
-const mapStateToProps = (state) => ({
-  restaurants : []
-})
+const mapStateToProps = (state) => {
+  console.log(state)
+  return {
+    restaurants : state.restaurant.restaurants,
+    selectedRestaurantId: state.restaurant.selectedId
+  }
+}
 
 /*  Note: mapStateToProps is where you should use `reselect` to create selectors, ie:
 
