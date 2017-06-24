@@ -3,7 +3,11 @@ import CoreLayout from '../layouts/PageLayout/PageLayout'
 import Home from './Home'
 import RestaurantList from './RestaurantList'
 import RestaurantGroup from './RestaurantGroup'
+import RestaurantRoute from './Restaurant'
 import Profile from './Profile'
+
+/*  Note: Instead of using JSX, we recommend using react-router
+    PlainRoute objects to build route definitions.   */
 
 export const createRoutes = (store) => ({
   path        : '/',
@@ -12,6 +16,7 @@ export const createRoutes = (store) => ({
   childRoutes : [
     RestaurantList(store),
     RestaurantGroup(store),
+    RestaurantRoute(store),
     Profile(store)
   ]
 })
