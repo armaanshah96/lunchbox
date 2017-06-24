@@ -1,4 +1,4 @@
-// import firebase from 'firebase';
+// crud operations
 const database = firebase.database()
 
 export function createUser (value) {
@@ -26,7 +26,7 @@ export function authenticated () {
       var email = error.email;
       var credential = error.credential;
 
-      return dispatch({ type: "IS_AUTHENTICATED", isAuthenticated: false })
+      return dispatch({ type: "IS_AUTHENTICATED", payload: false })
     });
   }
 }
